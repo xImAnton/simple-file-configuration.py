@@ -71,7 +71,7 @@ class ConfigSection(AbstractConfigSection):
 CustomTypes = TypeVar("CustomTypes", bound=dict[str, tuple[Callable[[str, Any], Any], bool]])
 
 
-class BotConfig(AbstractConfigSection):
+class SFC(AbstractConfigSection):
     def __init__(self, path: str, application_data: Any = None, custom_types: CustomTypes = None):
         self.file_path: str = path
         self.application_data: Any = application_data
