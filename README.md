@@ -1,4 +1,11 @@
 # simple-file-configuration.py
 Simple File Configurations (not only) for Discord Bots
 
-have no time, documentation may come later
+## Installation
+Install using pip:
+```
+pip install simple-file-configuration
+```
+
+## Documentations
+have no time rn, documentation may come later, sry
