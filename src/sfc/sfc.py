@@ -68,15 +68,15 @@ class ConfigSection(AbstractConfigSection):
         return ConfigSection(self, section)
 
 
-CustomTypes = TypeVar("CustomTypes", bound=dict[str, tuple[Callable[[str, Any], Any], bool]])
+CustomConfigTypes = TypeVar("CustomConfigTypes", bound=dict[str, tuple[Callable[[str, Any], Any], bool]])
 
 
 class SFC(AbstractConfigSection):
-    def __init__(self, path: str, application_data: Any = None, custom_types: CustomTypes = None):
+    def __init__(self, path: str, application_data: Any = None, custom_types: CustomConfigTypes = None):
         self.file_path: str = path
         self.application_data: Any = application_data
         self.data: Dict[str, Any] = {}
-        self.types: CustomTypes = {**DEFAULT_TYPES, **(custom_types or {})}
+        self.types: CustomConfigTypes = {**DEFAULT_TYPES, **(custom_types or {})}
 
     async def reload(self, post_ready: bool = True):
         self.data = {}
