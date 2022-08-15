@@ -1,9 +1,9 @@
 import abc
 import asyncio
 import base64
+import json
 import re
 from typing import Dict, Any, Callable, TypeVar
-import json
 
 
 async def guild_fetcher(v: str, c):
@@ -97,7 +97,7 @@ class SFC(AbstractConfigSection):
 
             name, type_, value = match.groups()
 
-            if type_ not in DEFAULT_TYPES.keys():
+            if type_ not in self.types.keys():
                 raise TypeError(f"invalid config type: {type_}")
 
             type_constructor, is_post_login = self.types[type_]
