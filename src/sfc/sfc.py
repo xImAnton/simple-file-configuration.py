@@ -27,7 +27,7 @@ async def channel_fetcher(v: str, c):
 
 
 _LINE_PATTERN = re.compile(r"([a-z0-9_.]+)\s*:\s*([a-zA-Z0-9_]+)\s*=\s*(.+)")
-NONE_TYPE = lambda _, _1: None
+NONE_TYPE = (lambda _, _1: None, False)
 DEFAULT_TYPES = {
     "str": (lambda v, _: str(v), False),
     "Base64": (lambda v, _: base64.b64decode(v).decode(), False),
