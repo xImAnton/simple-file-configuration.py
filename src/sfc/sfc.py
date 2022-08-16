@@ -101,13 +101,13 @@ class SFC(AbstractConfigSection):
 
             name, type_, value = match.groups()
 
-            if self.ignore_unknown_types:
-                type_constructor, is_post_ready = self.types.get(type_, NONE_TYPE)
-            else:
-                if type_ not in self.types.keys():
-                    raise TypeError(f"invalid config type: {type_}")
+            if type_ not in self.types.keys():
+                if self.ignore_unknown_types:
+                    continue
 
-                type_constructor, is_post_ready = self.types[type_]
+                raise TypeError(f"invalid config type: {type_}")
+
+            type_constructor, is_post_ready = self.types[type_]
 
             if not post_ready and is_post_ready:
                 continue
