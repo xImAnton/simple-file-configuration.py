@@ -1,1 +1,1 @@
-from .sfc import SFC, AbstractConfigSection, ConfigSection, CustomConfigTypes
+from .sfc import SFC, AbstractConfigSection, ConfigSection, CustomConfigTypes, NONE_TYPE
